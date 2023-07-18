@@ -61,6 +61,9 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
             //2 passo - Criar um obj da classe ClienteDAO e chamar o metodo CadastrarCliente
             ClienteDAO dao = new ClienteDAO();
             dao.CadastrarCliente(obj);
+
+            //recarregar o datagridview
+            tabelaClientes.DataSource = dao.listarCliente();
         }
 
         private void tabelaClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -81,12 +84,65 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
             txtcidade.Text = tabelaClientes.CurrentRow.Cells[12].Value.ToString();
             cbuf.Text = tabelaClientes.CurrentRow.Cells[13].Value.ToString();
 
+            //Alterar para a guia Dados Pessoais
+            tabClientes.SelectedTab = tabPage1;
         }
 
         private void Frmclientes_Load(object sender, EventArgs e)
         {
             ClienteDAO dao = new ClienteDAO();
             tabelaClientes.DataSource = dao.listarCliente();
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnexcluir_Click(object sender, EventArgs e)
+        {
+            //Botao excluir
+            Cliente obj = new Cliente();
+
+            //pegar o codigo
+            obj.codigo = int.Parse(txtcodigo.Text);
+
+            ClienteDAO dao = new ClienteDAO();
+
+            dao.ExluirCliente(obj);
+
+            //Recarregar o datagridview
+            tabelaClientes.DataSource = dao.listarCliente();
+        }
+
+        private void btneditar_Click(object sender, EventArgs e)
+        {
+            //1 passo - armazenar os dados em um objeto model
+            Cliente obj = new Cliente();
+
+            obj.nome = txtnome.Text; // obj.setName(txtnome.Text);
+            obj.rg = txtrg.Text;
+            obj.cpf = txtcpf.Text;
+            obj.email = txtemail.Text;
+            obj.telefone = txttelefone.Text;
+            obj.celular = txtcelular.Text;
+            obj.cep = txtcep.Text;
+            obj.endereco = txtendereco.Text;
+            obj.numero = int.Parse(txtnumero.Text);
+            obj.complemento = txtcomplemento.Text;
+            obj.bairro = txtbairro.Text;
+            obj.cidade = txtcidade.Text;
+            obj.estado = cbuf.Text;
+
+            obj.codigo = int.Parse(txtcodigo.Text);
+
+            //2 passo - Criar um obj da classe ClienteDAO e chamar o metodo CadastrarCliente
+            ClienteDAO dao = new ClienteDAO();
+            dao.AlterarCliente(obj);
+
+            //recarregar o datagridview
+            tabelaClientes.DataSource = dao.listarCliente();
+
         }
     }
 }

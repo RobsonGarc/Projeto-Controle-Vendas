@@ -438,6 +438,7 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Consulta";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // tabelaClientes
             // 
@@ -518,6 +519,7 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
             this.btnexcluir.TabIndex = 35;
             this.btnexcluir.Text = "Excluir";
             this.btnexcluir.UseVisualStyleBackColor = false;
+            this.btnexcluir.Click += new System.EventHandler(this.btnexcluir_Click);
             // 
             // btneditar
             // 
@@ -530,6 +532,7 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
             this.btneditar.TabIndex = 36;
             this.btneditar.Text = "Editar";
             this.btneditar.UseVisualStyleBackColor = false;
+            this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
             // 
             // Frmclientes
             // 

@@ -49,6 +49,7 @@ namespace Projeto_Controle_Vendas.br.com.projeto.dao
                 executacmd.ExecuteNonQuery();
 
                 MessageBox.Show("Cliente cadastrado com sucesso!");
+                conexao.Close();
             }
 
             catch (Exception erro)
@@ -58,8 +59,8 @@ namespace Projeto_Controle_Vendas.br.com.projeto.dao
             }
         }
         #endregion
-
-        #region AlterarCliente
+                
+        #region AlterarCliente 
         public void AlterarCliente(Cliente obj)
         {
             try
@@ -67,7 +68,7 @@ namespace Projeto_Controle_Vendas.br.com.projeto.dao
                 //1 passo - definir o cmd - insert into
                 string sql = @"update tb_clientes set nome=@nome,rg=@rg,cpf=@cpf,email=@email,telefone=@telefone,celular=@celular,cep=@cep, 
                                endereco=@endereco,numero=@numero,complemento=@complemento,bairro=@bairro,cidade=@cidade,estado=@estado
-                               where id=id";
+                               where id=@id";
 
                 //2 passo - Organizar o cmd sql
                 MySqlCommand executacmd = new MySqlCommand(sql, conexao);
@@ -91,6 +92,7 @@ namespace Projeto_Controle_Vendas.br.com.projeto.dao
                 executacmd.ExecuteNonQuery();
 
                 MessageBox.Show("Cliente alterado com sucesso!");
+                conexao.Close();
             }
 
             catch (Exception erro)
@@ -121,6 +123,7 @@ namespace Projeto_Controle_Vendas.br.com.projeto.dao
                 executacmd.ExecuteNonQuery();
 
                 MessageBox.Show("Cliente excluido com sucesso!");
+                conexao.Close();
             }
 
             catch (Exception erro)
@@ -150,6 +153,8 @@ namespace Projeto_Controle_Vendas.br.com.projeto.dao
                 //3 passo - Criar o MySQLDataApter para preencher os dados no DataTable;
                 MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
                 da.Fill(tabelacliente);
+
+                conexao.Close();
 
                 return tabelacliente;
             }

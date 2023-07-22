@@ -18,7 +18,7 @@ namespace Projeto_Controle_Vendas.br.com.projeto.dao
         public ClienteDAO() {
             this.conexao = new ConnectionFactory().GetConnection();
         }
-
+        /*--------------------------------------------------------------------------*/
         #region CadastrarCliente
         public void CadastrarCliente(Cliente obj)
         {
@@ -59,7 +59,7 @@ namespace Projeto_Controle_Vendas.br.com.projeto.dao
             }
         }
         #endregion
-                
+        /*--------------------------------------------------------------------------*/
         #region AlterarCliente 
         public void AlterarCliente(Cliente obj)
         {
@@ -103,7 +103,7 @@ namespace Projeto_Controle_Vendas.br.com.projeto.dao
         }
 
         #endregion
-
+        /*--------------------------------------------------------------------------*/
         #region ExcluirClientes
 
         public void ExluirCliente(Cliente obj)
@@ -134,7 +134,7 @@ namespace Projeto_Controle_Vendas.br.com.projeto.dao
         }
 
         #endregion
-
+        /*--------------------------------------------------------------------------*/
         #region ListarClientes
         public DataTable listarCliente()
         {
@@ -165,7 +165,68 @@ namespace Projeto_Controle_Vendas.br.com.projeto.dao
             }
         }
         #endregion
+        /*--------------------------------------------------------------------------*/
+        #region BuscarClientePorNome
+        public DataTable BuscarClientePorNome(string nome)
+        {
+            try
+            {
+                //1 passo - Criar o DataTable e o comando sql
+                DataTable tabelacliente = new DataTable();
 
+                string sql = "select * from tb_clientes where nome = @nome";
+
+                //2 passo - Organizar o comando sql e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, conexao);
+                conexao.Open();
+                executacmd.Parameters.AddWithValue("@nome", nome);
+
+                //3 passo - Criar o MySQLDataApter para preencher os dados no DataTable;
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelacliente);
+
+                conexao.Close();
+
+                return tabelacliente;
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao executar o comando sql: " + erro);
+                return null;
+            }
+        }
+        #endregion
+        /*--------------------------------------------------------------------------*/
+        #region ListarClientePorNome
+        public DataTable ListarClientePorNome(string nome)
+        {
+            try
+            {
+                //1 passo - Criar o DataTable e o comando sql
+                DataTable tabelacliente = new DataTable();
+
+                string sql = "select * from tb_clientes where nome like @nome";
+
+                //2 passo - Organizar o comando sql e executar
+                MySqlCommand executacmd = new MySqlCommand(sql, conexao);
+                conexao.Open();
+                executacmd.Parameters.AddWithValue("@nome", nome);
+
+                //3 passo - Criar o MySQLDataApter para preencher os dados no DataTable;
+                MySqlDataAdapter da = new MySqlDataAdapter(executacmd);
+                da.Fill(tabelacliente);
+
+                conexao.Close();
+
+                return tabelacliente;
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro ao executar o comando sql: " + erro);
+                return null;
+            }
+        }
+        #endregion
         //Metodo excluirCliente
 
         //Metodo buscarClientePorCpf

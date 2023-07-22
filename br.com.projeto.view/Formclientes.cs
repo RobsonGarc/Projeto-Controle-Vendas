@@ -144,5 +144,62 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
             tabelaClientes.DataSource = dao.listarCliente();
 
         }
+
+        private void tabelaClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnpesquisa_Click(object sender, EventArgs e)
+        {
+            //Botao pesquisar
+            string nome = txtpesquisa.Text;
+
+            ClienteDAO dao = new ClienteDAO();
+
+            tabelaClientes.DataSource = dao.BuscarClientePorNome(nome);
+
+            if(tabelaClientes.Rows.Count == 0)
+            {
+                MessageBox.Show("Cliente não localizado");
+                //recarregar o datagridview
+                tabelaClientes.DataSource = dao.listarCliente();
+            }
+
+        }
+
+        private void txtpesquisa_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            string nome = "%" + txtpesquisa.Text + "%";
+            ClienteDAO dao = new ClienteDAO();
+
+            tabelaClientes.DataSource = dao.ListarClientePorNome(nome);
+
+        }
+
+        private void btncep_Click(object sender, EventArgs e)
+        {
+            //Botao consultar CEP
+            try
+            {
+                string cep = txtcep.Text;
+                string xml = "https://viacep.com.br/ws/"+cep+"/xml/";
+
+                DataSet dados = new DataSet();
+
+                dados.ReadXml(xml);
+
+                txtendereco.Text = dados.Tables[0].Rows[0]["logradouro"].ToString();
+                txtbairro.Text = dados.Tables[0].Rows[0]["bairro"].ToString();
+                txtcidade.Text = dados.Tables[0].Rows[0]["localidade"].ToString();
+                txtcomplemento.Text = dados.Tables[0].Rows[0]["complemento"].ToString();
+                cbuf.Text = dados.Tables[0].Rows[0]["uf"].ToString();
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Endereço não encontrado, por favor, digite manualmente.");
+            }
+        }
     }
 }

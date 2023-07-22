@@ -70,6 +70,7 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
             this.btnsalvar = new System.Windows.Forms.Button();
             this.btnexcluir = new System.Windows.Forms.Button();
             this.btneditar = new System.Windows.Forms.Button();
+            this.btncep = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabClientes.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -111,6 +112,7 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btncep);
             this.tabPage1.Controls.Add(this.cbuf);
             this.tabPage1.Controls.Add(this.txtcep);
             this.tabPage1.Controls.Add(this.txtcelular);
@@ -450,8 +452,9 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
             this.tabelaClientes.ReadOnly = true;
             this.tabelaClientes.Size = new System.Drawing.Size(866, 319);
             this.tabelaClientes.TabIndex = 35;
-            this.tabelaClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabelaClientes_CellContentClick);
-            this.tabelaClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabelaClientes_CellContentClick);
+            this.tabelaClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabelaClientes_CellDoubleClick);
+            this.tabelaClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabelaClientes_CellDoubleClick);
+            this.tabelaClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabelaClientes_CellContentClick);
             // 
             // btnpesquisa
             // 
@@ -464,6 +467,7 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
             this.btnpesquisa.TabIndex = 34;
             this.btnpesquisa.Text = "Pesquisar";
             this.btnpesquisa.UseVisualStyleBackColor = false;
+            this.btnpesquisa.Click += new System.EventHandler(this.btnpesquisa_Click);
             // 
             // txtpesquisa
             // 
@@ -471,6 +475,7 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
             this.txtpesquisa.Name = "txtpesquisa";
             this.txtpesquisa.Size = new System.Drawing.Size(419, 26);
             this.txtpesquisa.TabIndex = 5;
+            this.txtpesquisa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtpesquisa_KeyPress);
             // 
             // label16
             // 
@@ -533,6 +538,19 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
             this.btneditar.Text = "Editar";
             this.btneditar.UseVisualStyleBackColor = false;
             this.btneditar.Click += new System.EventHandler(this.btneditar_Click);
+            // 
+            // btncep
+            // 
+            this.btncep.BackColor = System.Drawing.SystemColors.Highlight;
+            this.btncep.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncep.ForeColor = System.Drawing.Color.White;
+            this.btncep.Location = new System.Drawing.Point(221, 223);
+            this.btncep.Name = "btncep";
+            this.btncep.Size = new System.Drawing.Size(95, 31);
+            this.btncep.TabIndex = 37;
+            this.btncep.Text = "Pesquisar";
+            this.btncep.UseVisualStyleBackColor = false;
+            this.btncep.Click += new System.EventHandler(this.btncep_Click);
             // 
             // Frmclientes
             // 
@@ -604,5 +622,6 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
         private System.Windows.Forms.Button btnpesquisa;
         private System.Windows.Forms.TextBox txtpesquisa;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button btncep;
     }
 }

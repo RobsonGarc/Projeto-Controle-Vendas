@@ -31,7 +31,7 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
 
         private void btnnovo_Click(object sender, EventArgs e)
         {
-
+            new Helpers().LimparTela(this);
         }
 
         private void tabPage1_Click(object sender, EventArgs e)

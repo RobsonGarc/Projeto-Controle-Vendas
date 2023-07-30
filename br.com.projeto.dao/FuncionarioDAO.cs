@@ -26,7 +26,7 @@ namespace Projeto_Controle_Vendas.br.com.projeto.dao
             try
             {
                 //1 passo - Criar o comando sql
-                string sql = @"insert into bdvendas.tb_funcionarios f (nome, rg, cpf, email, senha, cargo, nivel_acesso, telefone, celular, cep, endereco, numero, complemento, bairro, cidade, estado)
+                string sql = @"insert into bdvendas.tb_funcionarios (nome, rg, cpf, email, senha, cargo, nivel_acesso, telefone, celular, cep, endereco, numero, complemento, bairro, cidade, estado)
                                 value (@nome, @rg, @cpf, @email, @senha, @cargo, @nivel_acesso, @telefone, @celular, @cep, @endereco, @numero, @complemento, @bairro, @cidade, @estado);";
                 
                 //2 passo - Organizar e executar o comando sql

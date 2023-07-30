@@ -33,6 +33,12 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
             this.panel1 = new System.Windows.Forms.Panel();
             this.tabClientes = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.cbnivel = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.cbcargo = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtsenha = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.btncep = new System.Windows.Forms.Button();
             this.cbuf = new System.Windows.Forms.ComboBox();
             this.txtcep = new System.Windows.Forms.MaskedTextBox();
@@ -71,12 +77,6 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
             this.btnexcluir = new System.Windows.Forms.Button();
             this.btnsalvar = new System.Windows.Forms.Button();
             this.btnnovo = new System.Windows.Forms.Button();
-            this.textsenha = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.cbcargo = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.cbnivel = new System.Windows.Forms.ComboBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabClientes.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -123,7 +123,7 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
             this.tabPage1.Controls.Add(this.label19);
             this.tabPage1.Controls.Add(this.cbcargo);
             this.tabPage1.Controls.Add(this.label18);
-            this.tabPage1.Controls.Add(this.textsenha);
+            this.tabPage1.Controls.Add(this.txtsenha);
             this.tabPage1.Controls.Add(this.label17);
             this.tabPage1.Controls.Add(this.btncep);
             this.tabPage1.Controls.Add(this.cbuf);
@@ -162,6 +162,69 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Dados Pessoais";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // cbnivel
+            // 
+            this.cbnivel.FormattingEnabled = true;
+            this.cbnivel.Items.AddRange(new object[] {
+            "Administrador",
+            "Usuário"});
+            this.cbnivel.Location = new System.Drawing.Point(622, 223);
+            this.cbnivel.Name = "cbnivel";
+            this.cbnivel.Size = new System.Drawing.Size(121, 28);
+            this.cbnivel.TabIndex = 43;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label19.Location = new System.Drawing.Point(567, 228);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(46, 20);
+            this.label19.TabIndex = 42;
+            this.label19.Text = "Nível:";
+            // 
+            // cbcargo
+            // 
+            this.cbcargo.FormattingEnabled = true;
+            this.cbcargo.Items.AddRange(new object[] {
+            "Gerente",
+            "Vendedor",
+            "Estagiário"});
+            this.cbcargo.Location = new System.Drawing.Point(622, 173);
+            this.cbcargo.Name = "cbcargo";
+            this.cbcargo.Size = new System.Drawing.Size(121, 28);
+            this.cbcargo.TabIndex = 41;
+            this.cbcargo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label18.Location = new System.Drawing.Point(560, 179);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(56, 20);
+            this.label18.TabIndex = 40;
+            this.label18.Text = "Cargo:";
+            // 
+            // txtsenha
+            // 
+            this.txtsenha.Location = new System.Drawing.Point(622, 126);
+            this.txtsenha.Name = "txtsenha";
+            this.txtsenha.PasswordChar = '*';
+            this.txtsenha.Size = new System.Drawing.Size(209, 26);
+            this.txtsenha.TabIndex = 39;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.label17.Location = new System.Drawing.Point(553, 132);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(60, 20);
+            this.label17.TabIndex = 38;
+            this.label17.Text = "Senha:";
+            this.label17.Click += new System.EventHandler(this.label17_Click);
             // 
             // btncep
             // 
@@ -555,69 +618,6 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
             this.btnnovo.Text = "Novo";
             this.btnnovo.UseVisualStyleBackColor = false;
             // 
-            // textsenha
-            // 
-            this.textsenha.Location = new System.Drawing.Point(622, 126);
-            this.textsenha.Name = "textsenha";
-            this.textsenha.PasswordChar = '*';
-            this.textsenha.Size = new System.Drawing.Size(209, 26);
-            this.textsenha.TabIndex = 39;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label17.Location = new System.Drawing.Point(553, 132);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(60, 20);
-            this.label17.TabIndex = 38;
-            this.label17.Text = "Senha:";
-            this.label17.Click += new System.EventHandler(this.label17_Click);
-            // 
-            // cbcargo
-            // 
-            this.cbcargo.FormattingEnabled = true;
-            this.cbcargo.Items.AddRange(new object[] {
-            "Gerente",
-            "Vendedor",
-            "Estagiário"});
-            this.cbcargo.Location = new System.Drawing.Point(622, 173);
-            this.cbcargo.Name = "cbcargo";
-            this.cbcargo.Size = new System.Drawing.Size(121, 28);
-            this.cbcargo.TabIndex = 41;
-            this.cbcargo.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label18.Location = new System.Drawing.Point(560, 179);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(56, 20);
-            this.label18.TabIndex = 40;
-            this.label18.Text = "Cargo:";
-            // 
-            // cbnivel
-            // 
-            this.cbnivel.FormattingEnabled = true;
-            this.cbnivel.Items.AddRange(new object[] {
-            "Administrador",
-            "Usuário"});
-            this.cbnivel.Location = new System.Drawing.Point(622, 223);
-            this.cbnivel.Name = "cbnivel";
-            this.cbnivel.Size = new System.Drawing.Size(121, 28);
-            this.cbnivel.TabIndex = 43;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.label19.Location = new System.Drawing.Point(567, 228);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(46, 20);
-            this.label19.TabIndex = 42;
-            this.label19.Text = "Nível:";
-            // 
             // FrmFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -686,7 +686,7 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
         private System.Windows.Forms.Button btnpesquisa;
         private System.Windows.Forms.TextBox txtpesquisa;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textsenha;
+        private System.Windows.Forms.TextBox txtsenha;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Button btneditar;
         private System.Windows.Forms.Button btnexcluir;

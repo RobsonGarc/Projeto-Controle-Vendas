@@ -526,6 +526,7 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Consulta";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
             // tabelaFuncionarios
             // 
@@ -537,6 +538,7 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
             this.tabelaFuncionarios.ReadOnly = true;
             this.tabelaFuncionarios.Size = new System.Drawing.Size(866, 319);
             this.tabelaFuncionarios.TabIndex = 35;
+            this.tabelaFuncionarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tabelaFuncionarios_CellContentClick);
             // 
             // btnpesquisa
             // 

@@ -21,7 +21,8 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
 
         private void FrmFuncionarios_Load(object sender, EventArgs e)
         {
-
+            FuncionarioDAO dao = new FuncionarioDAO();
+            tabelaFuncionarios.DataSource = dao.listarFuncionario();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -79,6 +80,16 @@ namespace Projeto_Controle_Vendas.br.com.projeto.view
         }
 
         private void btnexcluir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabelaFuncionarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click(object sender, EventArgs e)
         {
 
         }
